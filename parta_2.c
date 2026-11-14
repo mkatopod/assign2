@@ -5,9 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-/*----------------------------------------------------------*/
-/* Thread argument structure                                */
-/*----------------------------------------------------------*/
+
 
 typedef struct {
     double *A;
@@ -21,9 +19,6 @@ typedef struct {
     int b;
 } thread_arg_t;
 
-/*----------------------------------------------------------*/
-/* Worker thread                                            */
-/*----------------------------------------------------------*/
 
 void *worker_1d(void *arg) {
     thread_arg_t *t = (thread_arg_t *)arg;
@@ -86,9 +81,6 @@ void *worker_1d(void *arg) {
     return NULL;
 }
 
-/*----------------------------------------------------------*/
-/* Parallel execution                                       */
-/*----------------------------------------------------------*/
 
 double run_parallel(
     int M,
@@ -96,28 +88,17 @@ double run_parallel(
     int N,
     int p,
     int b) {
-    double *A =
-        generate_matrix(M, K, 1);
-
-    double *B =
-        generate_matrix(K, N, 2);
-
-    double *C =
-        (double *)calloc(
-            (size_t)M * N,
-            sizeof(double));
+    double *A = generate_matrix(M, K, 1);
+    double *B = generate_matrix(K, N, 2);
+    double *C = (double *)calloc((size_t)M * N, sizeof(double));
 
     if (!C) {
         fprintf(stderr, "Allocation failed\n");
         exit(1);
     }
 
-    pthread_t *threads =
-        malloc(p * sizeof(pthread_t));
-
-    thread_arg_t *args =
-        malloc(p * sizeof(thread_arg_t));
-
+    pthread_t *threads = malloc(p * sizeof(pthread_t));
+    thread_arg_t *args = malloc(p * sizeof(thread_arg_t));
     double start = now_seconds();
 
     for (int t = 0; t < p; t++) {
@@ -130,10 +111,8 @@ double run_parallel(
         args[t].N = N;
 
         args[t].b = b;
-        args[t].start_row =
-            (t * M) / p;
-        args[t].end_row =
-            ((t + 1) * M) / p;
+        args[t].start_row = (t * M) / p;
+        args[t].end_row = ((t + 1) * M) / p;
 
         pthread_create(
             &threads[t],
@@ -148,8 +127,7 @@ double run_parallel(
             NULL);
     }
 
-    double elapsed =
-        now_seconds() - start;
+    double elapsed = now_seconds() - start;
 
     double gflops =
         (2.0 * M * K * N) /
@@ -173,17 +151,12 @@ double run_parallel(
     return elapsed;
 }
 
-/*----------------------------------------------------------*/
-/* Main                                                     */
-/*----------------------------------------------------------*/
 
 int main(void) {
     /*this b_star is for testing temporary*/
     int b_star = 64;
 
-    int pvals[] = {
-        1, 2, 4, 8, 12, 18, 36
-    };
+    int pvals[] = {1, 2, 4, 8, 12, 18, 36};
 
     printf("\n");
     printf("Size     p     b      Time(s)    GFLOP/s\n");

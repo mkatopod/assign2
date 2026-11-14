@@ -18,7 +18,6 @@ void matmul_seq(
                     A[i * K + k] *
                     B[k * N + j];
             }
-
             C[i * N + j] = sum;
         }
     }
@@ -62,9 +61,7 @@ void matmul_tiled(
     }
 }
 
-/* ---------------------------------------------------------
-   Run one benchmark
---------------------------------------------------------- */
+
 void run_case(
     int M,
     int K,
@@ -72,10 +69,7 @@ void run_case(
     int b) {
     double *A = generate_matrix(M, K, 1);
     double *B = generate_matrix(K, N, 2);
-
-    double *C =
-        (double *)malloc(
-            (size_t)M * N * sizeof(double));
+    double *C = (double *)malloc( (size_t)M * N * sizeof(double));
 
     if (C == NULL) {
         fprintf(stderr, "Out of memory\n");
@@ -91,14 +85,9 @@ void run_case(
         matmul_tiled(A, B, C, M, K, N, b);
     }
 
-    double elapsed =
-        now_seconds() - start;
-
-    double flops =
-        2.0 * M * K * N;
-
-    double gflops =
-        flops / elapsed / 1.0e9;
+    double elapsed = now_seconds() - start;
+    double flops = 2.0 * M * K * N;
+    double gflops = flops / elapsed / 1.0e9;
 
     printf("%5d %5d %10.4f %10.3f\n",
            M,
@@ -111,16 +100,13 @@ void run_case(
     free(C);
 }
 
-/* ---------------------------------------------------------
-   Part A.1
---------------------------------------------------------- */
+
 int main(void) {
     printf("\n");
     printf(" Matrix Size  Tile      Time(s)    GFLOP/s\n");
     printf("-------------------------------------------\n");
 
     run_case(1024, 1024, 1024, 0);
-
     run_case(2048, 2048, 2048, 0);
     run_case(2048, 2048, 2048, 16);
     run_case(2048, 2048, 2048, 32);

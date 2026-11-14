@@ -1,0 +1,18 @@
+Part 5 is just asking for a report here. I need what I got from my code in Parts 1-4 in order to answer Parts a-d in Part 5.
+This is an example of how to answer Part 5(a): [not correct, just an example!]
+The best tile size was b = 64*. The neighboring tile sizes were 32 and 128.
+
+For b = 32: 32 × 32 × 8 = 8,192 bytes per tile
+For all three tiles (A, B, and C): 24,576 bytes
+For b = 64: 64 × 64 × 8 = 32,768 bytes per tile
+For all three tiles: 98,304 bytes
+For b = 128: 128 × 128 × 8 = 131,072 bytes per tile
+For all three tiles: 393,216 bytes
+
+The tile size 64 performed best because it fit more efficiently in cache while still providing good data reuse. Tile size 32 was 
+too small to maximize reuse, while tile size 128 produced a larger working set and increased cache misses.
+________________________________________________________________________________________________________________________________________
+
+
+
+
