@@ -8,7 +8,7 @@
     ./partb_3 8
 */
 
-#include "assign.h"
+#include "assignment2.h"
 #include <omp.h>
 #include <stdio.h>
 #include <stdlib.h>

@@ -15,7 +15,7 @@
     ./partb_2 36
 */
 
-#include "assign.h"
+#include "assignment2.h"
 #include <omp.h>
 #include <stdio.h>
 #include <stdlib.h>

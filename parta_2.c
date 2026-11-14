@@ -1,5 +1,4 @@
-#include "assign.h"
-
+#include "assignment2.h"
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>

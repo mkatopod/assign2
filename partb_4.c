@@ -6,7 +6,7 @@
     gcc -O2 -fopenmp partb_4.c -o partb_4
 */
 
-#include "assign.h"
+#include "assignment2.h"
 #include <omp.h>
 #include <stdio.h>
 #include <stdlib.h>

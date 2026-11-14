@@ -1,4 +1,4 @@
-#include "assign.h"
+#include "assignment2.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -94,6 +94,7 @@ void run_case(
            b,
            elapsed,
            gflops);
+    fflush(stdout);
 
     free(A);
     free(B);
@@ -105,6 +106,7 @@ int main(void) {
     printf("\n");
     printf(" Matrix Size  Tile      Time(s)    GFLOP/s\n");
     printf("-------------------------------------------\n");
+    fflush(stdout);
 
     run_case(1024, 1024, 1024, 0);
     run_case(2048, 2048, 2048, 0);
