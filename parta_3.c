@@ -5,7 +5,7 @@
     gcc -O2 -pthread parta_3.c -o parta_3
 */
 
-#include "assign.h"
+#include "assignment2.h"
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
