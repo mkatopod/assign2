@@ -3,6 +3,5 @@
 #SBATCH --time=00:30:00
 #SBATCH --output=parta1-%j.out
 
-set -e
-gcc -O2 -o parta_1 parta_1.c
+gcc -O2 -o parta_1 src/parta_1.c
 ./parta_1
