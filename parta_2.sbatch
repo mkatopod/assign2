@@ -1,8 +1,0 @@
-#!/bin/bash
-#SBATCH --job-name=parta2
-#SBATCH --time=00:30:00
-#SBATCH --output=parta2-%j.out
-
-set -e
-gcc -O2 -o parta_2 parta_2.c
-./parta_2
