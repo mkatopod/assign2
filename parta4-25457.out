@@ -1,0 +1,8 @@
+M = 1000
+K = 1024
+N = 1536
+Grid = 6 x 6
+b* = 64
+Time = 1.6852 seconds
+Rate = 1.867 GFLOP/s
+CORRECT: Parallel result matches sequential result.
