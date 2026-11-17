@@ -1,18 +1,9 @@
-/*
-    Demonstrates proper OpenMP timing.
-
-    Compile:
-    gcc -O2 -fopenmp partb_3.c -o partb_3
-
-    Run:
-    ./partb_3 8
-*/
-
 #include "assignment2.h"
 #include <omp.h>
 #include <stdio.h>
 #include <stdlib.h>
 
+/*matmul_omp is the OpenMP parallel matrix multiplication function*/
 void matmul_omp(
     double *A,
     double *B,
@@ -38,7 +29,7 @@ void matmul_omp(
     }
 }
 
-
+/*In main, we print the results*/
 int main(int argc, char *argv[]) {
     if (argc != 2) {
         fprintf(stderr,
@@ -62,17 +53,7 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    /*
-        Requirement:
-        thread count set BEFORE
-        timed region
-    */
     omp_set_num_threads(p);
-    /*
-        Requirement:
-        timer starts immediately
-        before parallel work
-    */
     double start = omp_get_wtime();
 
     matmul_omp(
@@ -83,11 +64,6 @@ int main(int argc, char *argv[]) {
         K,
         N);
 
-    /*
-        Requirement:
-        timer stops immediately
-        after parallel work
-    */
     double elapsed = omp_get_wtime() - start;
 
     double rate =
@@ -96,10 +72,8 @@ int main(int argc, char *argv[]) {
         1.0e9;
 
     printf("Threads : %d\n", p);
-    printf("Time    : %.4f seconds\n",
-           elapsed);
-    printf("Rate    : %.3f GFLOP/s\n",
-           rate);
+    printf("Time    : %.4f seconds\n", elapsed);
+    printf("Rate    : %.3f GFLOP/s\n", rate);
 
     free(A);
     free(B);

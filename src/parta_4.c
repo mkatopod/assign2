@@ -1,18 +1,10 @@
-/*
-    Part A.4
-    Non-divisible Dimensions
-
-    Compile:
-    gcc -O2 -pthread part4_nondivisible.c -o part4_nondivisible
-*/
-
 #include "assignment2.h"
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-
+/*Set what is needed for each thread*/
 typedef struct {
     double *A;
     double *B;
@@ -27,7 +19,7 @@ typedef struct {
     int b;
 } thread_arg_t;
 
-
+/*matmul_seq performs sequential matrix multiplication*/
 void matmul_seq(
     double *A,
     double *B,
@@ -49,7 +41,7 @@ void matmul_seq(
     }
 }
 
-
+/*worker is the thread function for the parallel matrix multiplicaiton*/
 void *worker(void *arg) {
     thread_arg_t *t = (thread_arg_t *)arg;
     int b = t->b;
@@ -104,7 +96,7 @@ void *worker(void *arg) {
     return NULL;
 }
 
-
+/*verify checks to see if the sequential and parallel results match*/
 int verify(
     double *Cseq,
     double *Cpar,
@@ -121,14 +113,13 @@ int verify(
     return 1;
 }
 
-
+/*In main, we print the results*/
 int main(void) {
     int b_star = 16;
 
     int M = 1000;
     int K = 1024;
     int N = 1536;
-
     int pr = 6;
     int pc = 6;
     int p = 36;
@@ -144,7 +135,6 @@ int main(void) {
         return 1;
     }
 
-    /* Sequential reference result */
     matmul_seq(
         A,
         B,
@@ -208,10 +198,10 @@ int main(void) {
     printf("Rate = %.3f GFLOP/s\n", rate);
 
     if (verify(Cseq, Cpar, M, N)) {
-        printf("CORRECT: Parallel result matches sequential result.\n");
+        printf("CORRECT: The parallel result matches the sequential result.\n");
     }
     else { 
-        printf("ERROR: Results do not match.\n");
+        printf("ERROR: The results do not match.\n");
     }
 
     free(A);

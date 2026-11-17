@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+/*matmul_seq performs the sequential matrix multiplication*/
 void matmul_seq(
     double *A,
     double *B,
@@ -23,7 +24,7 @@ void matmul_seq(
     }
 }
 
-/* Tiled multiplication (b > 0) */
+/*matmul_tiled performs the tiled matrix multiplication*/
 void matmul_tiled(
     double *A,
     double *B,
@@ -60,6 +61,7 @@ void matmul_tiled(
 }
 
 
+/*run_case runs a single matrix multiplication case*/
 void run_case(
     int M,
     int K,
@@ -98,7 +100,7 @@ void run_case(
     free(C);
 }
 
-
+/*In the end, we print the results*/
 int main(void) {
     printf("\n");
     printf(" Matrix Size  Tile      Time(s)    GFLOP/s\n");

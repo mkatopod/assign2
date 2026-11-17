@@ -1,27 +1,10 @@
-/*
-    OpenMP Matrix Multiplication
-    Thread count supplied from command line
-
-    Compile:
-    gcc -O2 -fopenmp partb_2.c -o partb_2
-
-    Run:
-    ./partb_2 1
-    ./partb_2 2
-    ./partb_2 4
-    ./partb_2 8
-    ./partb_2 12
-    ./partb_2 18
-    ./partb_2 36
-*/
-
 #include "assignment2.h"
 #include <omp.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-
+/*matmul_omp is the OpenMP parallel matric multiplciation function*/
 void matmul_omp(
     double *A,
     double *B,
@@ -32,7 +15,6 @@ void matmul_omp(
     int b) {
     memset(C, 0, (size_t)M * N * sizeof(double));
 
-    /* Untiled version */
     if (b == 0) {
         #pragma omp parallel for \
             default(shared) \
@@ -53,7 +35,6 @@ void matmul_omp(
         }
     }
 
-    /* Tiled version */
     else {
         #pragma omp parallel for \
             default(shared) \
@@ -97,7 +78,7 @@ void matmul_omp(
     }
 }
 
-/* This is a Run One Test */
+/* run_case is a Run Test */
 void run_case(
     int M,
     int K,
@@ -114,11 +95,6 @@ void run_case(
         exit(1);
     }
 
-    /*
-        Requirement:
-        Set thread count before
-        entering the timed region.
-    */
     omp_set_num_threads(p);
     double start = omp_get_wtime();
 
@@ -153,7 +129,7 @@ void run_case(
     free(C);
 }
 
-
+/*In main, we print the results*/
 int main(int argc, char *argv[]) {
     if (argc != 2) {
         fprintf(stderr,
@@ -164,17 +140,13 @@ int main(int argc, char *argv[]) {
 
     int p = atoi(argv[1]);
 
-    /*
-        Replace with actual b*
-        from Part A.1, temporary here
-    */
     int b_star = 64;
 
     printf("\n");
     printf("OpenMP Matrix Multiplication\n");
     printf("Threads = %d\n\n", p);
 
-    /* 1024, b = 0 */
+    /*For: 1024, b = 0 */
     run_case(
         1024,
         1024,
@@ -182,7 +154,7 @@ int main(int argc, char *argv[]) {
         p,
         0);
 
-    /* 1024, b = b* */
+    /*For: 1024, b = b* */
     run_case(
         1024,
         1024,
@@ -190,7 +162,7 @@ int main(int argc, char *argv[]) {
         p,
         b_star);
 
-    /* 2048, b = 0 */
+    /*For: 2048, b = 0 */
     run_case(
         2048,
         2048,
@@ -198,7 +170,7 @@ int main(int argc, char *argv[]) {
         p,
         0);
 
-    /* 2048, b = b* */
+    /*For: 2048, b = b* */
     run_case(
         2048,
         2048,

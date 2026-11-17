@@ -4,8 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-
-
+/*Set what is needed for each thread*/
 typedef struct {
     double *A;
     double *B;
@@ -19,6 +18,7 @@ typedef struct {
 } thread_arg_t;
 
 
+/*In worker_1d, we define the thread function needed for the 1D parallel matrix multiplication*/
 void *worker_1d(void *arg) {
     thread_arg_t *t = (thread_arg_t *)arg;
 
@@ -36,7 +36,6 @@ void *worker_1d(void *arg) {
             }
         }
     }
-
 
     else {
         int b = t->b;
@@ -81,6 +80,7 @@ void *worker_1d(void *arg) {
 }
 
 
+/*In run_parallel, we run the parallel matrix multiplication*/
 double run_parallel(
     int M,
     int K,
@@ -150,7 +150,7 @@ double run_parallel(
     return elapsed;
 }
 
-
+/*In main, we print the results*/
 int main(void) {
     int b_star = 16;
 
@@ -160,9 +160,7 @@ int main(void) {
     printf("Size     p     b      Time(s)    GFLOP/s\n");
     printf("-----------------------------------------\n");
 
-    /*======================*/
-    /* 1024, b = 0          */
-    /*======================*/
+    /*For 1024, b = 0 */
 
     double Tseq1024 =
         run_parallel(
@@ -177,13 +175,10 @@ int main(void) {
                 pvals[i],
                 0);
 
-        printf("Speedup = %.3f\n",
-               Tseq1024 / Tp);
+        printf("Speedup = %.3f\n", Tseq1024 / Tp);
     }
 
-    /*======================*/
-    /* 1024, b = b*         */
-    /*======================*/
+    /*For 1024, b = b* */
 
     double Tseq1024Tile =
         run_parallel(
@@ -198,13 +193,10 @@ int main(void) {
                 pvals[i],
                 b_star);
 
-        printf("Speedup = %.3f\n",
-               Tseq1024Tile / Tp);
+        printf("Speedup = %.3f\n", Tseq1024Tile / Tp);
     }
 
-    /*======================*/
-    /* 2048, b = 0          */
-    /*======================*/
+    /*For 2048, b = 0  */
 
     double Tseq2048 =
         run_parallel(
@@ -219,13 +211,10 @@ int main(void) {
                 pvals[i],
                 0);
 
-        printf("Speedup = %.3f\n",
-               Tseq2048 / Tp);
+        printf("Speedup = %.3f\n", Tseq2048 / Tp);
     }
 
-    /*======================*/
-    /* 2048, b = b*         */
-    /*======================*/
+    /*For 2048, b = b* */
 
     double Tseq2048Tile =
         run_parallel(
@@ -240,8 +229,7 @@ int main(void) {
                 pvals[i],
                 b_star);
 
-        printf("Speedup = %.3f\n",
-               Tseq2048Tile / Tp);
+        printf("Speedup = %.3f\n", Tseq2048Tile / Tp);
     }
     return 0;
 }

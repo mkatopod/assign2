@@ -1,17 +1,10 @@
-/*
-    partb_4.c
-
-    OpenMP partition implementation
-
-    gcc -O2 -fopenmp partb_4.c -o partb_4
-*/
-
 #include "assignment2.h"
 #include <omp.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
+/*matmul_2d_partition is the 2D partitioned matrix multiplication function*/
 void matmul_2d_partition(
     double *A,
     double *B,
@@ -86,6 +79,7 @@ void matmul_2d_partition(
     }
 }
 
+/*In main, we print the results*/
 int main(int argc, char *argv[]) {
     if (argc != 2) {
         fprintf(stderr,
@@ -124,8 +118,7 @@ int main(int argc, char *argv[]) {
 
     double elapsed = omp_get_wtime() - start;
 
-    printf("Time = %.4f seconds\n",
-           elapsed);
+    printf("Time = %.4f seconds\n", elapsed);
 
     free(A);
     free(B);

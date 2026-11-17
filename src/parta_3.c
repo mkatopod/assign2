@@ -1,16 +1,10 @@
-/*
-    Two-Dimensional Partition
-    Compile:
-
-    gcc -O2 -pthread parta_3.c -o parta_3
-*/
-
 #include "assignment2.h"
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
+/*Set what is needed for each thread*/
 typedef struct {
     double *A;
     double *B;
@@ -26,7 +20,7 @@ typedef struct {
 
 } thread_arg_t;
 
-
+/*In worker_2d, we define the thread function needed for the 2D parallel matrix multiplication*/
 void *worker_2d(void *arg) {
     thread_arg_t *t = (thread_arg_t *)arg;
     int b = t->b;
@@ -81,7 +75,7 @@ void *worker_2d(void *arg) {
     return NULL;
 }
 
-
+/*find_pr finds the largest prime factor of p*/
 int find_pr(int p) {
     int pr = 1;
     for (int d = 1; d * d <= p; d++) {
@@ -92,7 +86,7 @@ int find_pr(int p) {
     return pr;
 }
 
-
+/*run_2d runs the 2D parallel matrix multiplication*/
 double run_2d(
     int M,
     int K,
@@ -171,7 +165,7 @@ double run_2d(
     return elapsed;
 }
 
-
+/*In the main, we print the results*/
 int main() {
     int b_star = 16;
 

@@ -1,16 +1,10 @@
-/*
-    OpenMP One-Dimensional Partition
-
-    Compile:
-    gcc -O2 -fopenmp partb_1.c -o partb_1
-*/
-
 #include "assignment2.h"
 #include <omp.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
+/*For matmul_omp, we define the OpenMP parallel matrix multiplication function*/
 void matmul_omp(
     double *A,
     double *B,
@@ -21,7 +15,6 @@ void matmul_omp(
     int b) {
     memset(C, 0, (size_t)M * N * sizeof(double));
 
-    /* Untiled version */
     if (b == 0) {
         #pragma omp parallel for \
             default(shared) \
@@ -42,7 +35,6 @@ void matmul_omp(
         }
     }
 
-    /* Tiled version */
     else {
         #pragma omp parallel for \
             default(shared) \
@@ -91,7 +83,7 @@ void matmul_omp(
     }
 }
 
-
+/*print_thread_info prints the information of the threads*/
 void print_thread_info(void) {
     #pragma omp parallel default(shared)
     {
@@ -99,14 +91,13 @@ void print_thread_info(void) {
         int nthreads = omp_get_num_threads();
 
         if (tid == 0) {
-            printf("Running with %d threads\n",
-                   nthreads);
+            printf("Running with %d threads\n", nthreads);
         }
     }
 }
 
 
-/* This is a Run Test */
+/*run_case is is a run test */
 double run_case(
     int M,
     int K,
@@ -154,13 +145,10 @@ double run_case(
     return elapsed;
 }
 
-
+/*In main, we print the results*/
 int main(void) {
-    /*
-       Replace with the actual b*
-       from Part A.1, this is temporary for now
-    */
     int b_star = 64;
+    
     int pvals[] = { 1, 2, 4, 8, 12, 18, 36 };
 
     print_thread_info();
