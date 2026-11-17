@@ -23,9 +23,7 @@ void matmul_seq(
     }
 }
 
-/* ---------------------------------------------------------
-   Tiled multiplication (b > 0)
---------------------------------------------------------- */
+/* Tiled multiplication (b > 0) */
 void matmul_tiled(
     double *A,
     double *B,
@@ -108,6 +106,7 @@ int main(void) {
 
     run_case(1024, 1024, 1024, 0);
     run_case(2048, 2048, 2048, 0);
+    run_case(2048, 2048, 2048, 8);
     run_case(2048, 2048, 2048, 16);
     run_case(2048, 2048, 2048, 32);
     run_case(2048, 2048, 2048, 64);

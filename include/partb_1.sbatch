@@ -4,5 +4,5 @@
 #SBATCH --output=partb1-%j.out
 
 set -e
-gcc -O2 -I. -o partb_1 src/partb_1.c
+gcc -O2 -fopenmp -I. -o partb_1 src/partb_1.c
 ./partb_1

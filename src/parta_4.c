@@ -123,11 +123,7 @@ int verify(
 
 
 int main(void) {
-    /*
-       Replace with your actual b*
-       from Part A.1, this is temporary
-    */
-    int b_star = 64;
+    int b_star = 16;
 
     int M = 1000;
     int K = 1024;

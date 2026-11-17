@@ -1,0 +1,7 @@
+OpenMP Matrix Multiplication
+Threads = 8
+
+M=1024 p=8 b=0 Time=  0.3006 Rate=   7.144 GFLOP/s
+M=1024 p=8 b=64 Time=  0.1475 Rate=  14.559 GFLOP/s
+M=2048 p=8 b=0 Time= 13.4818 Rate=   1.274 GFLOP/s
+M=2048 p=8 b=64 Time=  1.1865 Rate=  14.479 GFLOP/s

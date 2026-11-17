@@ -8,19 +8,3 @@
  2048   128    30.1852      0.569
  2048   256    25.8616      0.664
 
-
- #Note: To do sbatch, use this: sbatch --partition=Centaurus parta_1.sbatch
- #To Check it:
- #squeue -j 25444 -o "%.18i %.9P %.8T %R"
-             JOBID PARTITION    STATE NODELIST(REASON)
-             25444 Centaurus  RUNNING gal-c1
-sacct -j 25444 --format=JobID,State,ExitCode,Elapsed
-JobID             State ExitCode    Elapsed
------------- ---------- -------- ----------
-25444           RUNNING      0:0   00:03:53
-25444.batch     RUNNING      0:0   00:03:53
-25444.extern    RUNNING      0:0   00:03:53
-squeue -j 25444
-
-#I can also try running this line since the files are now in a folder:
-sbatch --partition=Centaurus include/parta_4.sbatch

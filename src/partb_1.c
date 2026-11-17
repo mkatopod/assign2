@@ -93,7 +93,8 @@ void matmul_omp(
 
 
 void print_thread_info(void) {
-    #pragma omp parallel default(shared) {
+    #pragma omp parallel default(shared)
+    {
         int tid = omp_get_thread_num();
         int nthreads = omp_get_num_threads();
 

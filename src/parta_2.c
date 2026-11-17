@@ -152,8 +152,7 @@ double run_parallel(
 
 
 int main(void) {
-    /*this b_star is for testing temporary*/
-    int b_star = 64;
+    int b_star = 16;
 
     int pvals[] = {1, 2, 4, 8, 12, 18, 36};
 

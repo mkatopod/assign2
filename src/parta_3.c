@@ -173,8 +173,7 @@ double run_2d(
 
 
 int main() {
-    /* Replace with result found from Part A.1, this is temporary below */
-    int b_star = 64;
+    int b_star = 16;
 
     int plist[] = {2,4,8,12,18,36};
 
@@ -198,13 +197,8 @@ int main() {
         run_2d(2048, 2048, 2048, p, pr, pc, b_star);
     }
 
-    /*
-       Special case required:
-
-       p = 36
-       grid = 1 x 36
-       size = 2048
-    */
+    printf("\n===== 2048 ROW GRID 36x1 =====\n");
+    run_2d(2048, 2048, 2048, 36, 36, 1, b_star);
 
     printf("\n===== 2048 COLUMN GRID 1x36 =====\n");
     run_2d(2048, 2048, 2048, 36, 1, 36, b_star);
