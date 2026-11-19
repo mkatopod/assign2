@@ -1,7 +1,11 @@
-I used the following commands to help test my code:
+## Assignment 2 Instructions
 
-To do sbatch, use this: sbatch --partition=Centaurus parta_1.sbatch
-To Check it: squeue -j ##### (add number of output here)
+These are the following commands I used to help test my code:
 
-I also used this command once I put my code into folders:
-sbatch --partition=Centaurus include/part#_#.sbatch
+- To run the sbatch, use... 'sbatch --partition=Centaurus part#_#.sbatch'
+  - Example: sbatch --partition=Centaurus parta_1.sbatch
+- To check and see if the sbatch is still running, run... 'squeue -j #####'
+  - Example: squeue -j 25571
+
+- I also used this command once I put my code into folders: sbatch --partition=Centaurus include/part#_#.sbatch
+  - Example: sbatch --partition=Centaurus include/partb_2.sbatch

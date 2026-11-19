@@ -1,0 +1,37 @@
+Running with 1 threads
+
+===== 1024 : b = 0 =====
+Size=1024  p=1  b=0  Time=  3.1220  Rate=   0.688 GFLOP/s
+Size=1024  p=2  b=0  Time=  3.1209  Rate=   0.688 GFLOP/s
+Size=1024  p=4  b=0  Time=  3.1179  Rate=   0.689 GFLOP/s
+Size=1024  p=8  b=0  Time=  3.1137  Rate=   0.690 GFLOP/s
+Size=1024  p=12  b=0  Time=  3.1123  Rate=   0.690 GFLOP/s
+Size=1024  p=18  b=0  Time=  3.1148  Rate=   0.689 GFLOP/s
+Size=1024  p=36  b=0  Time=  3.1907  Rate=   0.673 GFLOP/s
+
+===== 1024 : b = b* =====
+Size=1024  p=1  b=64  Time=  1.1331  Rate=   1.895 GFLOP/s
+Size=1024  p=2  b=64  Time=  1.1348  Rate=   1.892 GFLOP/s
+Size=1024  p=4  b=64  Time=  1.1349  Rate=   1.892 GFLOP/s
+Size=1024  p=8  b=64  Time=  1.1368  Rate=   1.889 GFLOP/s
+Size=1024  p=12  b=64  Time=  1.1367  Rate=   1.889 GFLOP/s
+Size=1024  p=18  b=64  Time=  1.1386  Rate=   1.886 GFLOP/s
+Size=1024  p=36  b=64  Time=  1.1410  Rate=   1.882 GFLOP/s
+
+===== 2048 : b = 0 =====
+Size=2048  p=1  b=0  Time= 56.8456  Rate=   0.302 GFLOP/s
+Size=2048  p=2  b=0  Time= 51.1775  Rate=   0.336 GFLOP/s
+Size=2048  p=4  b=0  Time= 48.7632  Rate=   0.352 GFLOP/s
+Size=2048  p=8  b=0  Time= 47.4874  Rate=   0.362 GFLOP/s
+Size=2048  p=12  b=0  Time= 48.5095  Rate=   0.354 GFLOP/s
+Size=2048  p=18  b=0  Time= 55.7411  Rate=   0.308 GFLOP/s
+Size=2048  p=36  b=0  Time= 49.1144  Rate=   0.350 GFLOP/s
+
+===== 2048 : b = b* =====
+Size=2048  p=1  b=64  Time=  9.4179  Rate=   1.824 GFLOP/s
+Size=2048  p=2  b=64  Time=  9.4814  Rate=   1.812 GFLOP/s
+Size=2048  p=4  b=64  Time=  9.4250  Rate=   1.823 GFLOP/s
+Size=2048  p=8  b=64  Time=  9.4443  Rate=   1.819 GFLOP/s
+Size=2048  p=12  b=64  Time=  9.4117  Rate=   1.825 GFLOP/s
+Size=2048  p=18  b=64  Time=  9.4382  Rate=   1.820 GFLOP/s
+Size=2048  p=36  b=64  Time=  9.4822  Rate=   1.812 GFLOP/s
