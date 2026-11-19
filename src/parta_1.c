@@ -104,7 +104,7 @@ void run_case(
 int main(void) {
     printf("\n");
     printf(" Matrix Size  Tile      Time(s)    GFLOP/s\n");
-    printf("-------------------------------------------\n");
+    printf("==========================================\n");
 
     run_case(1024, 1024, 1024, 0);
     run_case(2048, 2048, 2048, 0);

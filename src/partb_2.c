@@ -90,8 +90,7 @@ void run_case(
     double *C = calloc((size_t)M * N, sizeof(double));
 
     if (C == NULL) {
-        fprintf(stderr,
-                "Allocation failed\n");
+        fprintf(stderr, "Allocation failed\n");
         exit(1);
     }
 
@@ -132,15 +131,13 @@ void run_case(
 /*In main, we print the results*/
 int main(int argc, char *argv[]) {
     if (argc != 2) {
-        fprintf(stderr,
-                "Usage: %s <threads>\n",
-                argv[0]);
+        fprintf(stderr, "Usage: %s <threads>\n", argv[0]);
         return 1;
     }
 
     int p = atoi(argv[1]);
 
-    int b_star = 64;
+    int b_star = 16;
 
     printf("\n");
     printf("OpenMP Matrix Multiplication\n");

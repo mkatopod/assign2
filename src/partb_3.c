@@ -32,9 +32,7 @@ void matmul_omp(
 /*In main, we print the results*/
 int main(int argc, char *argv[]) {
     if (argc != 2) {
-        fprintf(stderr,
-            "Usage: %s <threads>\n",
-            argv[0]);
+        fprintf(stderr, "Usage: %s <threads>\n", argv[0]);
         return 1;
     }
 
@@ -48,8 +46,7 @@ int main(int argc, char *argv[]) {
     double *C = calloc((size_t)M * N, sizeof(double));
 
     if (C == NULL) {
-        fprintf(stderr,
-            "Allocation failed\n");
+        fprintf(stderr, "Allocation failed\n");
         return 1;
     }
 

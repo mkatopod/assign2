@@ -147,13 +147,14 @@ double run_case(
 
 /*In main, we print the results*/
 int main(void) {
-    int b_star = 64;
+    int b_star = 16;
     
     int pvals[] = { 1, 2, 4, 8, 12, 18, 36 };
 
     print_thread_info();
 
-    printf("\n===== 1024 : b = 0 =====\n");
+    printf("\n==============================\n")
+    printf("\n1024 : b = 0 \n");
 
     for (int i = 0; i < 7; i++) {
         run_case(
@@ -164,7 +165,8 @@ int main(void) {
             0);
     }
 
-    printf("\n===== 1024 : b = b* =====\n");
+    printf("\n==============================\n")
+    printf("\n1024 : b = b*\n");
 
     for (int i = 0; i < 7; i++) {
         run_case(
@@ -175,7 +177,8 @@ int main(void) {
             b_star);
     }
 
-    printf("\n===== 2048 : b = 0 =====\n");
+    printf("\n==============================\n")
+    printf("\n2048 : b = 0 \n");
 
     for (int i = 0; i < 7; i++) {
         run_case(
@@ -186,7 +189,8 @@ int main(void) {
             0);
     }
 
-    printf("\n===== 2048 : b = b* =====\n");
+    printf("\n==============================\n")
+    printf("\n2048 : b = b* \n");
 
     for (int i = 0; i < 7; i++) {
         run_case(

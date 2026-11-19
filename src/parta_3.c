@@ -171,7 +171,7 @@ int main() {
 
     int plist[] = {2,4,8,12,18,36};
 
-    printf("\n===== SIZE 1024 =====\n");
+    printf("\nSIZE 1024\n");
 
     for(int i=0;i<6;i++) {
         int p = plist[i];
@@ -181,7 +181,9 @@ int main() {
         run_2d(1024, 1024, 1024, p, pr, pc, b_star);
     }
 
-    printf("\n===== SIZE 2048 =====\n");
+    printf("\n=====================================\n");
+
+    printf("\nSIZE 2048\n");
 
     for(int i=0;i<6;i++) {
         int p = plist[i];
@@ -190,11 +192,15 @@ int main() {
 
         run_2d(2048, 2048, 2048, p, pr, pc, b_star);
     }
+    
+    printf("\n=====================================\n");
 
-    printf("\n===== 2048 ROW GRID 36x1 =====\n");
+    printf("\n2048 ROW GRID 36x1\n");
     run_2d(2048, 2048, 2048, 36, 36, 1, b_star);
 
-    printf("\n===== 2048 COLUMN GRID 1x36 =====\n");
+    printf("\n=====================================\n");
+
+    printf("\n2048 COLUMN GRID 1x36\n");
     run_2d(2048, 2048, 2048, 36, 1, 36, b_star);
 
     return 0;

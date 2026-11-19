@@ -82,9 +82,7 @@ void matmul_2d_partition(
 /*In main, we print the results*/
 int main(int argc, char *argv[]) {
     if (argc != 2) {
-        fprintf(stderr,
-                "Usage: %s <threads>\n",
-                argv[0]);
+        fprintf(stderr, "Usage: %s <threads>\n", argv[0]);
         return 1;
     }
 
@@ -92,7 +90,7 @@ int main(int argc, char *argv[]) {
 
     omp_set_num_threads(p);
 
-    int b_star = 64;
+    int b_star = 16;
     int M = 2048;
     int K = 2048;
     int N = 2048;
