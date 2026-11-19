@@ -1,0 +1,27 @@
+SIZE 1024
+M=1024 p=2 grid=1x2 time=  0.8038 rate=   2.672 GFLOP/s
+M=1024 p=4 grid=2x2 time=  0.8731 rate=   2.460 GFLOP/s
+M=1024 p=8 grid=2x4 time=  0.8674 rate=   2.476 GFLOP/s
+M=1024 p=12 grid=3x4 time=  0.8681 rate=   2.474 GFLOP/s
+M=1024 p=18 grid=3x6 time=  0.8735 rate=   2.459 GFLOP/s
+M=1024 p=36 grid=6x6 time=  0.8732 rate=   2.459 GFLOP/s
+
+=====================================
+
+SIZE 2048
+M=2048 p=2 grid=1x2 time=  7.0213 rate=   2.447 GFLOP/s
+M=2048 p=4 grid=2x2 time=  6.9989 rate=   2.455 GFLOP/s
+M=2048 p=8 grid=2x4 time=  7.0143 rate=   2.449 GFLOP/s
+M=2048 p=12 grid=3x4 time=  7.0615 rate=   2.433 GFLOP/s
+M=2048 p=18 grid=3x6 time=  7.1693 rate=   2.396 GFLOP/s
+M=2048 p=36 grid=6x6 time=  7.3415 rate=   2.340 GFLOP/s
+
+=====================================
+
+2048 ROW GRID 36x1
+M=2048 p=36 grid=36x1 time=  7.2555 rate=   2.368 GFLOP/s
+
+=====================================
+
+2048 COLUMN GRID 1x36
+M=2048 p=36 grid=1x36 time=  7.3940 rate=   2.323 GFLOP/s

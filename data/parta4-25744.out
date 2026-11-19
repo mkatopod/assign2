@@ -3,6 +3,6 @@ K = 1024
 N = 1536
 Grid = 6 x 6
 b* = 16
-Time = 1.1906 seconds
-Rate = 2.642 GFLOP/s
+Time = 1.2410 seconds
+Rate = 2.535 GFLOP/s
 CORRECT: The parallel result matches the sequential result.
